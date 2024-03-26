@@ -1,0 +1,294 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= settings.name %></title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <style>
+        .bg-color {
+            background-color: rgb(9, 9, 11);
+        }
+
+        a,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        th,
+        td {
+            color: white !important;
+        }
+
+        .border,
+        .border-b {
+            border-color: rgb(39, 39, 42) !important;
+        }
+
+        aa {
+            color: black;
+        }
+
+        .bg-blur {
+            backdrop-filter: blur(24px) saturate(200%);
+            -webkit-backdrop-filter: blur(24px) saturate(200%);
+            background-color: rgba(0, 0, 0, 0);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.125);
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+
+    <body>
+        <div class="flex min-h-screen w-full flex-col bg-color ">
+            <!-- Header for screens bigger than 768 px -->
+            <header
+                class="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 bg-blur  max-[767px]:hidden">
+                <nav
+                    class="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+                    <a class="flex items-center gap-2 text-lg font-semibold md:text-base" href="#"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-package2 h-6 w-6">
+                            <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path>
+                            <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"></path>
+                            <path d="M12 3v6"></path>
+                        </svg><span class="sr-only">Acme Inc</span></a>
+                    <a class="text-muted-foreground transition-colors hover:text-foreground" href="../dashboard">Dashboard</a>
+                    <a class="text-muted-foreground transition-colors hover:text-foreground" href="../dashboard">Store</a>
+                    <a class="text-muted-foreground transition-colors hover:text-foreground" href="../severs">Servers</a>
+                    <a class="text-muted-foreground transition-colors hover:text-foreground" href="../accounts">Account</a>
+                    <a class="text-muted-foreground transition-colors hover:text-foreground" href="../admin">Admin</a>
+                </nav>
+            </header>
+            <!-- Header for screens smaller than 768 px -->
+            <header
+                class="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 bg-blur  min-[768px]:hidden">
+                <nav
+                    class="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+                    <a class="flex items-center gap-2 text-lg font-semibold md:text-base" href="#"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-package2 h-6 w-6">
+                            <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path>
+                            <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"></path>
+                            <path d="M12 3v6"></path>
+                        </svg></a>
+                    <a class="text-foreground transition-colors hover:text-foreground" href="../dashboard">Dashboard</a>
+                    <a class="text-muted-foreground transition-colors hover:text-foreground" href="../shop">Store</a>
+                    <a class="text-muted-foreground transition-colors hover:text-foreground" href="../servers">Servers</a>
+                    <a class="text-muted-foreground transition-colors hover:text-foreground" href="..account">Account</a>
+                    <a class="text-muted-foreground transition-colors hover:text-foreground" href="../admin">Admin</a>
+                </nav>
+            </header>
+            <main class="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8 ">
+                <div class="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div class="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
+                            <h3 class="tracking-tight text-sm font-medium">CPU Used</h3><svg
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-dollar-sign h-4 w-4 text-muted-foreground">
+                                <line x1="12" x2="12" y1="2" y2="22"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="text-2xl font-bold" style="color: white;">0/100%</div>
+                            <p class="text-xs text-muted-foreground " style="color: greenyellow; ">Fetched From API</p>
+                        </div>
+                    </div>
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div class="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
+                            <h3 class="tracking-tight text-sm font-medium">RAM Used</h3><svg
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-users h-4 w-4 text-muted-foreground">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="text-2xl font-bold" style="color: white;">0/1024MB</div>
+                            <p class="text-xs text-muted-foreground " style="color: greenyellow; ">Fetched From API</p>
+                        </div>
+                    </div>
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div class="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
+                            <h3 class="tracking-tight text-sm font-medium">DISK used</h3><svg
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-credit-card h-4 w-4 text-muted-foreground">
+                                <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                                <line x1="2" x2="22" y1="10" y2="10"></line>
+                            </svg>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="text-2xl font-bold" style="color: white;">0/2048MB</div>
+                            <p class="text-xs text-muted-foreground " style="color: greenyellow; ">Fetched From API</p>
+                        </div>
+                    </div>
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div class="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
+                            <h3 class="tracking-tight text-sm font-medium">Servers</h3><svg
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-activity h-4 w-4 text-muted-foreground">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="text-2xl font-bold" style="color: white;">0/2</div>
+                            <p class="text-xs text-muted-foreground " style="color: greenyellow; ">Fetched From API</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm xl:col-span-2 overflow-x-auto">
+                        <div class="space-y-1.5 p-6 flex flex-row items-center">
+                            <div class="grid gap-2">
+                                <h3 class="text-2xl font-semibold leading-none tracking-tight">Servers</h3>
+                                <p class="text-sm text-muted-foreground" style="color:  white;">The Complete list of the
+                                    servers you own is LushNodes.</p>
+                            </div>
+                            <button
+                                class="text-black inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3 ml-auto gap-1 bg-white"
+                                onclick="window.location.href = '../servers';" style="color: black;">View All
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-arrow-up-right h-4 w-4">
+                                    <path d="M7 7h10v10"></path>
+                                    <path d="M7 17 17 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="relative w-full overflow-auto ">
+                                <table class="w-full caption-bottom text-sm">
+                                    <thead class="[&amp;_tr]:border-b">
+                                        <tr
+                                            class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                                            <th class="h-12 px-6 text-left align-middle font-medium text-muted-foreground ">
+                                                Server Name</th>
+                                            <th class="h-12 px-6 text-left align-middle font-medium text-muted-foreground ">
+                                                Cpu</th>
+                                            <th class="h-12 px-6 text-left align-middle font-medium text-muted-foreground ">
+                                                Ram</th>
+                                            <th class="h-12 px-6 text-left align-middle font-medium text-muted-foreground ">
+                                                Disk</th>
+                                            <th class="h-12 px-6 text-left align-middle font-medium text-muted-foreground "
+                                                style="opacity: 70%;"> Server ID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground">
+                                                LushNodes</td>
+                                            <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground">
+                                                100%</td>
+                                            <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground">
+                                                1024MB</td>
+                                            <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground">
+                                                2048MB</td>
+                                            <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground"
+                                                style="opacity: 70%;">#32f212</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground">
+                                            LushNodes</td>
+                                        <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground">100%
+                                        </td>
+                                        <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground">
+                                            1024MB</td>
+                                        <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground">
+                                            2048MB</td>
+                                        <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground"
+                                            style="opacity: 70%;">#32f212</td>
+                                    </tbody>
+                                    <tbody>
+                                        <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground">
+                                            LushNodes</td>
+                                        <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground">100%
+                                        </td>
+                                        <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground">
+                                            1024MB</td>
+                                        <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground">
+                                            2048MB</td>
+                                        <td class="h-12 px-6 text-left align-middle font-medium text-muted-foreground"
+                                            style="opacity: 70%;">#32f212</td>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div class="max-w-sm mx-auto  rounded-lg overflow-hidden shadow-lg">
+                            <div class="border-b px-4 pb-6">
+                                <div class="text-center my-4">
+                                    <img class="h-32 w-32 rounded-full border-4 border-white dark:border-gray-800 mx-auto my-4"
+                                        src="https://cdn.discordapp.com/avatars/941349445017141318/ab016545b36c3909a6fb5968fa8e1237?size=256"
+                                        alt="">
+                                    <div class="py-2">
+                                        <h3 class="font-bold text-2xl text-gray-800 dark:text-white mb-1"><%= userinfo.username %></h3>
+
+                                        <div class="inline-flex text-gray-700 dark:text-gray-300 items-center">
+                                            Member
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2 px-2">
+                                    <button
+                                        class="flex-1 rounded-full border-2 border-gray-400 dark:border-gray-700 font-semibold text-black dark:text-white px-4 py-2 hover:bg-white/10">
+                                        View Profile
+                                    </button>
+                                    <button
+                                        class="flex-1 rounded-full border-2 border-gray-400 dark:border-gray-700 font-semibold text-black dark:text-white px-4 py-2 hover:bg-white/10">
+                                        View Servers
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-lg border bg-card text-card-foreground shadow-sm xl:col-span-2" style="height: 200px;">
+                    <h1 class="p-5">Advertisements</h1>
+                </div>
+            </main>
+            <div class="sticky bottom-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 bg-blur  min-[768px]:hidden"
+                style="border-top-left-radius: 10px; border-top-right-radius: 10px;  border-radius: 0px;">
+
+                <div
+                    class="flex w-full justify-center items-center gap-4 md:ml-auto md:gap-2 lg:gap-4 space-x-8 text-white">
+                <a href="../dashboard"><i class="fa-solid fa-house  text-sm flex"></i></a> 
+                    <a href="../shop"><i class="fa-solid fa-shop  text-sm"></i></a>
+                <a href="../create"><i class="fa-solid fa-plus text-3xl rounded-full" style="background-color: white; color: black; padding-left: 5px; padding-right: 5px;"></i></a>
+                    <a href="../earn"><i class="fa-solid fa-dollar-sign text-md"></i></a>
+                <a href="../accounts"><i class="fa-solid fa-user text-sm"></i></a>  
+                </div>
+            </div>
+        </div>
+    </body>
+
+    </html>
